@@ -1,0 +1,52 @@
+CREATE TABLE users(
+	users_id SERIAL PRIMARY KEY,
+	mail_address VARCHAR(200),
+	username VARCHAR(100) UNIQUE,
+	password VARCHAR(100)
+);
+
+
+CREATE TABLE stock_info(
+	stock_id SERIAL PRIMARY KEY,
+	stock_status VARCHAR(1000),
+	stock_size VARCHAR(100),
+	item_picture_url VARCHAR(1000),
+	price VARCHAR(100),
+	link_id INT,
+	CONSTRAINT unique_stocks
+	UNIQUE (stock_size, link_id),
+	CONSTRAINT fk_link
+	FOREIGN KEY (link_id)
+	REFERENCES stock_links(link_id)
+);
+
+CREATE TABLE stock_links(
+	link_id SERIAL PRIMARY KEY,
+	stock_link VARCHAR(1000),
+	username VARCHAR(100),
+	stock_source VARCHAR(100),
+	CONSTRAINT unique_links
+	UNIQUE (stock_link, username),
+	CONSTRAINT fk_user
+	FOREIGN KEY (username)
+	REFERENCES users(username)
+);
+
+
+SELECT * FROM users;
+SELECT * FROM stock_links;
+SELECT * FROM stock_info;
+
+DROP TABLE stock_info;
+DROP TABLE stock_links;
+DROP TABLE users;
+
+INSERT INTO users(mail_address, username, password) VALUES ('test@gmail.com','can', '8246')
+https://www.zara.com/tr/tr/zw-collection-100-keten-gomlek-p04877100.html?v1=394833962
+INSERT INTO stock_links(stock_link, username, stock_source) VALUES ('https://www.zara.com/tr/tr/limited-edition-hafif-kaban-p05924034.html?v1=382575161&v2=2436894', 'can', 'zara')
+
+SELECT sl.stock_link, sl.username, sl.stock_source, u.mail_address FROM stock_links sl
+INNER JOIN users u ON u.username = sl.username
+WHERE sl.stock_source = 'zara';
+
+
