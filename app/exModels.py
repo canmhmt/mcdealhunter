@@ -1,9 +1,3 @@
-# from flask_login import UserMixin
-    
-
-# 
-
-
 # class show_stock_status_query():
 #     def show_zara_stock_status_query(name):
 #         connection = connections()
@@ -51,8 +45,6 @@
 #         cursor.close()
 
 #         return data
-        
-    
 
 #     def delete_zara_stock_query(zara_id):
 #         connection = connections()
