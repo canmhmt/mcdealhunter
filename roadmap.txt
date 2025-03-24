@@ -1,0 +1,3 @@
+- elk stack will be integrated. For store data who fetched from postgresql
+- redis will be integrated. For faster page loading.
+- kafka for socket and streaming data
