@@ -37,9 +37,6 @@ SELECT * FROM users;
 SELECT * FROM stock_links;
 SELECT * FROM stock_info;
 
-DROP TABLE stock_info;
-DROP TABLE stock_links;
-DROP TABLE users;
 
 INSERT INTO users(mail_address, username, password) VALUES ('test@gmail.com','can', '8246')
 https://www.zara.com/tr/tr/zw-collection-100-keten-gomlek-p04877100.html?v1=394833962
